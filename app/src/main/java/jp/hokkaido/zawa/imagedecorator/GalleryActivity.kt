@@ -1,10 +1,10 @@
 package jp.hokkaido.zawa.imagedecorator
 
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
 import jp.hokkaido.zawa.imagedecorator.data.getImageList
 import jp.hokkaido.zawa.imagedecorator.utils.glideWithPlaceholder
 import kotlinx.android.synthetic.main.activity_gallery.*

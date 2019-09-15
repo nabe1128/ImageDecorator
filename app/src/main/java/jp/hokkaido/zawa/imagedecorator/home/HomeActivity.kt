@@ -3,8 +3,8 @@ package jp.hokkaido.zawa.imagedecorator.home
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import jp.hokkaido.zawa.imagedecorator.GalleryActivity
 import jp.hokkaido.zawa.imagedecorator.R
 
