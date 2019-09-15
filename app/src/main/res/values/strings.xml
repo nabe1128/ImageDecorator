@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ImageDecorator</string>
     <string name="image_select_button_label">画像選択</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
