@@ -1,20 +1,17 @@
 package jp.hokkaido.zawa.imagedecorator
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import jp.hokkaido.zawa.imagedecorator.home.HomeFragment
 
-//class MainActivity : BaseActivity() {
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        // TODO バージョンによる分岐
-//        checkPermission()
-//        setContentView(R.layout.activity_main)
-//    }
-//
-//    fun clickGallery(view: View) {
-//        val intent = Intent(this, GalleryActivity::class.java)
-//        startActivity(intent)
-//    }
-//}
+class MainActivity : BaseActivity(), HomeFragment.OnHandlerHomeFragment {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        checkPermission()
+        setContentView(R.layout.activity_main)
+    }
+
+    override fun onGalleryButtonClick() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+}
