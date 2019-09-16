@@ -1,16 +1,16 @@
 package jp.hokkaido.zawa.imagedecorator.home
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import jp.hokkaido.zawa.imagedecorator.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
-    private var listener: OnHandlerHomeFragment? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -18,27 +18,12 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    fun onButtonPressed() {
-        listener?.onGalleryButtonClick()
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        if (context is OnHandlerHomeFragment) {
-            listener = context
-        } else {
-            throw RuntimeException("$context must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
-
-    interface OnHandlerHomeFragment {
-        fun onGalleryButtonClick()
+        imageSelectButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.actionHomeFragmentToGalleryFragment)
+            }
     }
 
     companion object {

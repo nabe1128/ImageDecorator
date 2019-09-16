@@ -12,6 +12,7 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/actionHomeFragmentToGalleryFragment"
+            app:enterAnim="@anim/slide_from_bottom"
             app:destination="@id/galleryFragment" />
     </fragment>
 
