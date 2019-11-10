@@ -22,7 +22,7 @@ class ImagesAdapter(private val viewModel: GalleryViewModel) : ListAdapter<Image
         holder.loadImage(item)
     }
 
-    class ViewHolder private constructor(val binding: ImageItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(private val binding: ImageItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(viewModel: GalleryViewModel, item: ImageData) {
             binding.viewModel = viewModel
