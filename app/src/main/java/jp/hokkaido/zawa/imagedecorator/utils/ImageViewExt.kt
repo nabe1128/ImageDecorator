@@ -1,10 +1,11 @@
 package jp.hokkaido.zawa.imagedecorator.utils
 
 import android.content.Context
+import android.net.Uri
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import jp.hokkaido.zawa.imagedecorator.R
 
 fun ImageView.glideWithPlaceholder(context: Context, url: String) {
     val requestOptions = RequestOptions().apply {
@@ -20,8 +21,14 @@ fun ImageView.glideWithPlaceholder(context: Context, url: String) {
             .into(this)
 }
 
-fun ImageView.load(context: Context, url: String) {
+fun ImageView.load(context: Context, url: Uri) {
     Glide.with(context)
             .load(url)
+            .into(this)
+}
+
+fun ImageView.loadOnFragment(fragment: Fragment, uri: Uri) {
+    Glide.with(fragment)
+            .load(uri)
             .into(this)
 }
