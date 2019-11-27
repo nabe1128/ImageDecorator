@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import jp.hokkaido.zawa.imagedecorator.data.ImageData
 import jp.hokkaido.zawa.imagedecorator.databinding.ImageItemBinding
+import jp.hokkaido.zawa.imagedecorator.utils.getRequestOptions
 import jp.hokkaido.zawa.imagedecorator.utils.load
 
 class ImagesAdapter(private val viewModel: GalleryViewModel) : ListAdapter<ImageData, ImagesAdapter.ViewHolder>(ImagesDiffCallback()) {
@@ -33,7 +34,7 @@ class ImagesAdapter(private val viewModel: GalleryViewModel) : ListAdapter<Image
         fun loadImage(item: ImageData) {
             val ctx = binding.itemImage.context
             if (ctx != null) {
-                binding.itemImage.load(ctx, item.uri)
+                binding.itemImage.load(ctx, item.uri, getRequestOptions(true))
             }
         }
 

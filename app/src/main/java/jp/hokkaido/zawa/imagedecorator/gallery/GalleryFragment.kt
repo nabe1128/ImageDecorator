@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import jp.hokkaido.zawa.imagedecorator.R
 import jp.hokkaido.zawa.imagedecorator.databinding.FragmentGalleryBinding
 import jp.hokkaido.zawa.imagedecorator.utils.getViewModelFactory
@@ -18,8 +19,7 @@ class GalleryFragment : Fragment() {
 
     private lateinit var imagesAdapter: ImagesAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 //         Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_gallery, container, false)
         viewDataBinding = FragmentGalleryBinding.bind(view).apply {
@@ -42,7 +42,10 @@ class GalleryFragment : Fragment() {
         val viewModel = viewDataBinding.viewmodel
         if (viewModel != null) {
             imagesAdapter = ImagesAdapter(viewModel)
-            viewDataBinding.gallery.adapter = imagesAdapter
+            viewDataBinding.gallery.run {
+                adapter = imagesAdapter
+                layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+            }
         }
     }
 }

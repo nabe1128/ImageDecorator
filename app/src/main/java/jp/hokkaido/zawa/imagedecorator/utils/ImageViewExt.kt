@@ -21,8 +21,9 @@ fun ImageView.glideWithPlaceholder(context: Context, url: String) {
             .into(this)
 }
 
-fun ImageView.load(context: Context, url: Uri) {
+fun ImageView.load(context: Context, url: Uri, options: RequestOptions) {
     Glide.with(context)
+            .setDefaultRequestOptions(options)
             .load(url)
             .into(this)
 }
@@ -31,4 +32,12 @@ fun ImageView.loadOnFragment(fragment: Fragment, uri: Uri) {
     Glide.with(fragment)
             .load(uri)
             .into(this)
+}
+
+fun getRequestOptions(isCrop: Boolean = true): RequestOptions {
+    val requestOptions = RequestOptions()
+
+    if (isCrop) requestOptions.centerCrop()
+
+    return requestOptions
 }
