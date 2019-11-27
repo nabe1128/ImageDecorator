@@ -1,6 +1,5 @@
 package jp.hokkaido.zawa.imagedecorator.home
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,10 +22,6 @@ class HomeFragment : Fragment() {
 
         imageSelectButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.actionHomeFragmentToGalleryFragment)
-            }
-    }
-
-    companion object {
-        fun newInstance() = HomeFragment()
+        }
     }
 }
