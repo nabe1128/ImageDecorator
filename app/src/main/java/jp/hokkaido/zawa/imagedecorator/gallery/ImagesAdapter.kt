@@ -2,6 +2,7 @@ package jp.hokkaido.zawa.imagedecorator.gallery
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,7 @@ class ImagesAdapter(private val viewModel: GalleryViewModel) : ListAdapter<Image
 
         holder.bind(viewModel, item)
         holder.loadImage(item)
+        holder.setClickListener(item)
     }
 
     class ViewHolder private constructor(private val binding: ImageItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -35,6 +37,13 @@ class ImagesAdapter(private val viewModel: GalleryViewModel) : ListAdapter<Image
             val ctx = binding.itemImage.context
             if (ctx != null) {
                 binding.itemImage.load(ctx, item.uri, getRequestOptions(true))
+            }
+        }
+
+        fun setClickListener(item: ImageData) {
+            binding.itemImage.setOnClickListener {
+                val action = GalleryFragmentDirections.actionGalleryFragmentToPhotoPickupFragment(item.id)
+                Navigation.findNavController(it).navigate(action)
             }
         }
 
